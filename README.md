@@ -268,12 +268,13 @@ copies or substantial portions of the Software.
 ## 📞 Support
 
 - **GitHub Issues** - Bug reports and feature requests
-- **Email** - support@musicplayer.com
+- **Email** - supportsiidonamusicplayer@gmail.com
 - **Discord** - Join our community server
 - **Documentation** - Comprehensive guides
 
 ---
 
 **Made with ❤️ for music lovers worldwide** 🎵
+
 
 **Download now and enjoy your music like never before!** 📱✨

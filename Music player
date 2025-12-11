@@ -1,0 +1,36 @@
+name: Android CI: Build Debug APK
+
+# ... (የመጀመሪያው ክፍል ተመሳሳይ ነው - on: push, pull_request, ወዘተ.)
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 ኮዱን አውርድ (Checkout Code)
+      uses: actions/checkout@v4
+
+    - name: ☕ JDK 17ን አዘጋጅ (Setup Java)
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        
+    - name: 🔑 Gradle Wrapperን አከናዋኝ (Grant execute permission)
+      run: chmod +x ./gradlew
+
+    - name: 🔨 Debug APKን አዘጋጅ (Build Debug APK)
+      run: ./gradlew assembleDebug
+
+    - name: ⬆️ APKውን ስቀል (Upload APK as Artifact)
+      # 💥 እዚህ ነው ለውጡ! v3 ወደ v4 ተቀይሯል
+      uses: actions/upload-artifact@v4 
+      with:
+        name: app-debug-apk
+        path: app/build/outputs/apk/debug/app-debug.apk
